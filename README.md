@@ -136,10 +136,4 @@ resources/views/          # Semua tampilan (Blade)
 
 database/migrations/      # File migrasi database
 routes/web.php            # Definisi semua route
-```
-
----
-
-## Lisensi
-
-Proyek ini dibuat untuk keperluan akademik UAS mata kuliah Back End Development.
+ 
