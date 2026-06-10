@@ -2,7 +2,7 @@
 
 @section('content')
 <h1>Tambah Pembayaran</h1>
-<div class="card" style="max-width:500px">
+<div class="card card-narrow">
     <form action="{{ route('payments.store') }}" method="POST">
         @csrf
         <div class="form-group">
@@ -15,32 +15,34 @@
                 </option>
                 @endforeach
             </select>
-            @error('order_id') <div class="error">{{ $message }}</div> @enderror
+            @error('order_id') <span class="error">{{ $message }}</span> @enderror
         </div>
         <div class="form-group">
             <label>Jumlah Bayar (Rp)</label>
             <input type="number" name="amount" value="{{ old('amount') }}" min="0" step="100">
-            @error('amount') <div class="error">{{ $message }}</div> @enderror
+            @error('amount') <span class="error">{{ $message }}</span> @enderror
         </div>
         <div class="form-group">
             <label>Metode Pembayaran</label>
             <select name="method">
                 <option value="transfer" {{ old('method') == 'transfer' ? 'selected' : '' }}>Transfer Bank</option>
-                <option value="cash" {{ old('method') == 'cash' ? 'selected' : '' }}>Cash</option>
-                <option value="ewallet" {{ old('method') == 'ewallet' ? 'selected' : '' }}>E-Wallet</option>
+                <option value="cash"     {{ old('method') == 'cash'     ? 'selected' : '' }}>Cash</option>
+                <option value="ewallet"  {{ old('method') == 'ewallet'  ? 'selected' : '' }}>E-Wallet</option>
             </select>
-            @error('method') <div class="error">{{ $message }}</div> @enderror
+            @error('method') <span class="error">{{ $message }}</span> @enderror
         </div>
         <div class="form-group">
             <label>Status</label>
             <select name="status">
                 <option value="pending" {{ old('status') == 'pending' ? 'selected' : '' }}>Pending</option>
-                <option value="paid" {{ old('status') == 'paid' ? 'selected' : '' }}>Lunas</option>
-                <option value="failed" {{ old('status') == 'failed' ? 'selected' : '' }}>Gagal</option>
+                <option value="paid"    {{ old('status') == 'paid'    ? 'selected' : '' }}>Lunas</option>
+                <option value="failed"  {{ old('status') == 'failed'  ? 'selected' : '' }}>Gagal</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-success">Simpan</button>
-        <a href="{{ route('payments.index') }}" class="btn btn-primary">Batal</a>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-success">Simpan</button>
+            <a href="{{ route('payments.index') }}" class="btn btn-secondary">Batal</a>
+        </div>
     </form>
 </div>
 @endsection
