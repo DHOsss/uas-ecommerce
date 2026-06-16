@@ -125,7 +125,7 @@
         </div>
         <div class="auth-hero-badge">
             <div class="stat">Koleksi tersedia</div>
-            <div class="val">500+ Style</div>
+            <div class="val">10+ Style</div>
         </div>
     </div>
 
