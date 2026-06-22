@@ -8,11 +8,11 @@ Proyek UAS mata kuliah Back End Development menggunakan Laravel, PHP, dan MySQL.
 
 | Anggota | Fitur yang Dikerjakan |
 |---|---|
-| [Nama Anggota 1] | Produk & Kategori |
-| [Nama Anggota 2] | Pesanan & Item Pesanan |
-| [Nama Anggota 3] | Customer & Keranjang Belanja |
-| [Nama Anggota 4] | Pembayaran & Voucher |
-| [Nama Anggota 5] | Ulasan & Supplier |
+| Aldho Prahauga (535250153) | Auth (login, register), Customer, Middleware, Role Migration, Admin Seeder, Role-based Routing |
+| Ramdan Thalib (535250121) | Cart, Order, Customer Cart Views, Migrations (size & voucher), Product & Category Seeder, CSS, Pagination, App Bootstrap |
+| Fajar Adhy Nugroho (535250145) | Payment, Voucher, Customer Payment Views, Migration (change method payment) |
+| Ardennes Karl Immanuel (535250010) | Review, Supplier, Customer Review Views |
+| Rizky Aditya Wardana (535250110) | OrderItem, Product, Category, Admin Dashboard, Layout App |
 
 ---
 
