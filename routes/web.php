@@ -26,3 +26,4 @@ Route::resource('payments', PaymentController::class);
 Route::resource('vouchers', VoucherController::class);
 Route::resource('reviews', ReviewController::class);
 Route::resource('suppliers', SupplierController::class);
+ 
