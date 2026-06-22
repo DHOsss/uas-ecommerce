@@ -26,7 +26,14 @@
         </div>
         <div class="form-group">
             <label>Kategori</label>
-            <input type="text" name="category" value="{{ old('category', $product->category) }}">
+            <select name="category">
+                <option value="">-- Pilih Kategori --</option>
+                @foreach ($categories as $category)
+                    <option value="{{ $category->name }}" {{ old('category', $product->category) == $category->name ? 'selected' : '' }}>
+                        {{ $category->name }}
+                    </option>
+                @endforeach
+            </select>
         </div>
         <div class="form-actions">
             <button type="submit" class="btn btn-success">Perbarui</button>

@@ -11,7 +11,6 @@
         <tr><th>Stok</th><td>{{ $product->stock }}</td></tr>
     </table>
     <div class="form-actions">
-        <a href="{{ route('products.edit', $product->id) }}" class="btn btn-warning">Edit</a>
         <a href="{{ route('products.index') }}" class="btn btn-secondary">Kembali</a>
     </div>
 </div>
