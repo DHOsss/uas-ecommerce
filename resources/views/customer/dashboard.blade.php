@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Beranda — OutfitKu')
+
 @section('content')
 
 <div class="shop-hero">
