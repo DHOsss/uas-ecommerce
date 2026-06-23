@@ -2,18 +2,18 @@
 
 @section('content')
 <h1>Tambah Customer</h1>
-<div class="card" style="max-width:500px">
+<div class="card card-narrow">
     <form action="{{ route('customers.store') }}" method="POST">
         @csrf
         <div class="form-group">
             <label>Nama</label>
             <input type="text" name="name" value="{{ old('name') }}">
-            @error('name') <div class="error">{{ $message }}</div> @enderror
+            @error('name') <span class="error">{{ $message }}</span> @enderror
         </div>
         <div class="form-group">
             <label>Email</label>
             <input type="email" name="email" value="{{ old('email') }}">
-            @error('email') <div class="error">{{ $message }}</div> @enderror
+            @error('email') <span class="error">{{ $message }}</span> @enderror
         </div>
         <div class="form-group">
             <label>Telepon</label>
@@ -23,8 +23,10 @@
             <label>Alamat</label>
             <textarea name="address" rows="3">{{ old('address') }}</textarea>
         </div>
-        <button type="submit" class="btn btn-success">Simpan</button>
-        <a href="{{ route('customers.index') }}" class="btn btn-primary">Batal</a>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-success">Simpan</button>
+            <a href="{{ route('customers.index') }}" class="btn btn-secondary">Batal</a>
+        </div>
     </form>
 </div>
 @endsection
