@@ -2,7 +2,7 @@
 
 @section('content')
 <h1>Tambah Ulasan</h1>
-<div class="card" style="max-width:500px">
+<div class="card card-narrow">
     <form action="{{ route('reviews.store') }}" method="POST">
         @csrf
         <div class="form-group">
@@ -15,12 +15,12 @@
                 </option>
                 @endforeach
             </select>
-            @error('product_id') <div class="error">{{ $message }}</div> @enderror
+            @error('product_id') <span class="error">{{ $message }}</span> @enderror
         </div>
         <div class="form-group">
             <label>Nama Customer</label>
             <input type="text" name="customer_name" value="{{ old('customer_name') }}">
-            @error('customer_name') <div class="error">{{ $message }}</div> @enderror
+            @error('customer_name') <span class="error">{{ $message }}</span> @enderror
         </div>
         <div class="form-group">
             <label>Rating (1-5)</label>
@@ -29,14 +29,16 @@
                 <option value="{{ $i }}" {{ old('rating') == $i ? 'selected' : '' }}>{{ $i }} Bintang</option>
                 @endfor
             </select>
-            @error('rating') <div class="error">{{ $message }}</div> @enderror
+            @error('rating') <span class="error">{{ $message }}</span> @enderror
         </div>
         <div class="form-group">
             <label>Komentar</label>
             <textarea name="comment" rows="4">{{ old('comment') }}</textarea>
         </div>
-        <button type="submit" class="btn btn-success">Simpan</button>
-        <a href="{{ route('reviews.index') }}" class="btn btn-primary">Batal</a>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-success">Simpan</button>
+            <a href="{{ route('reviews.index') }}" class="btn btn-secondary">Batal</a>
+        </div>
     </form>
 </div>
 @endsection

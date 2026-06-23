@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Dashboard Admin — OutfitKu')
+
 @section('content')
 
 <style>

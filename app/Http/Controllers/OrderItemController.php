@@ -25,23 +25,30 @@ class OrderItemController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'order_id'   => 'required|exists:orders,id',
-            'product_id' => 'required|exists:products,id',
-            'quantity'   => 'required|integer|min:1',
+            'order_id'     => 'required|exists:orders,id',
+            'product_id'   => 'required|array|min:1',
+            'product_id.*' => 'required|exists:products,id',
+            'quantity'     => 'required|array|min:1',
+            'quantity.*'   => 'required|integer|min:1',
         ]);
 
-        $product  = Product::findOrFail($request->product_id);
-        $subtotal = $product->price * $request->quantity;
+        foreach ($request->product_id as $i => $productId) {
+            $product  = Product::findOrFail($productId);
+            $qty      = $request->quantity[$i];
+            $subtotal = $product->price * $qty;
 
-        OrderItem::create([
-            'order_id'   => $request->order_id,
-            'product_id' => $request->product_id,
-            'quantity'   => $request->quantity,
-            'price'      => $product->price,
-            'subtotal'   => $subtotal,
-        ]);
+            OrderItem::create([
+                'order_id'   => $request->order_id,
+                'product_id' => $productId,
+                'quantity'   => $qty,
+                'price'      => $product->price,
+                'subtotal'   => $subtotal,
+            ]);
+        }
 
-        return redirect()->route('order-items.index')->with('success', 'Item pesanan berhasil ditambahkan.');
+        $count = count($request->product_id);
+        $label = $count > 1 ? "{$count} item berhasil ditambahkan." : 'Item pesanan berhasil ditambahkan.';
+        return redirect()->route('order-items.index')->with('success', $label);
     }
 
     public function show(string $id)

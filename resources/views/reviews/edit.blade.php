@@ -2,7 +2,7 @@
 
 @section('content')
 <h1>Edit Ulasan</h1>
-<div class="card" style="max-width:500px">
+<div class="card card-narrow">
     <form action="{{ route('reviews.update', $review->id) }}" method="POST">
         @csrf @method('PUT')
         <div class="form-group">
@@ -18,7 +18,7 @@
         <div class="form-group">
             <label>Nama Customer</label>
             <input type="text" name="customer_name" value="{{ old('customer_name', $review->customer_name) }}">
-            @error('customer_name') <div class="error">{{ $message }}</div> @enderror
+            @error('customer_name') <span class="error">{{ $message }}</span> @enderror
         </div>
         <div class="form-group">
             <label>Rating (1-5)</label>
@@ -32,8 +32,10 @@
             <label>Komentar</label>
             <textarea name="comment" rows="4">{{ old('comment', $review->comment) }}</textarea>
         </div>
-        <button type="submit" class="btn btn-success">Perbarui</button>
-        <a href="{{ route('reviews.index') }}" class="btn btn-primary">Batal</a>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-success">Perbarui</button>
+            <a href="{{ route('reviews.index') }}" class="btn btn-secondary">Batal</a>
+        </div>
     </form>
 </div>
 @endsection

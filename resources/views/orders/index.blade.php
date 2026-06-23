@@ -1,12 +1,14 @@
 @extends('layouts.app')
 
+@php $pageTitle = auth()->user()->isAdmin() ? 'Manajemen Pesanan' : 'Pesanan Saya'; @endphp
+@section('title', $pageTitle . ' — OutfitKu')
+
 @section('content')
 
 @if(auth()->user()->isAdmin())
 {{-- ══════════ ADMIN VIEW ══════════ --}}
 <div class="page-header">
     <h1>Manajemen Pesanan</h1>
-    <a href="{{ route('orders.create') }}" class="btn btn-primary">+ Buat Pesanan</a>
 </div>
 
 {{-- Filter status --}}

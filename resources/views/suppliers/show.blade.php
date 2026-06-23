@@ -2,7 +2,7 @@
 
 @section('content')
 <h1>Detail Supplier</h1>
-<div class="card" style="max-width:500px">
+<div class="card card-narrow">
     <table>
         <tr><th>ID</th><td>{{ $supplier->id }}</td></tr>
         <tr><th>Nama</th><td>{{ $supplier->name }}</td></tr>
@@ -12,9 +12,9 @@
         <tr><th>Contact Person</th><td>{{ $supplier->contact_person ?? '-' }}</td></tr>
         <tr><th>Dibuat</th><td>{{ $supplier->created_at->format('d/m/Y H:i') }}</td></tr>
     </table>
-    <div style="margin-top:12px">
+    <div class="form-actions">
         <a href="{{ route('suppliers.edit', $supplier->id) }}" class="btn btn-warning">Edit</a>
-        <a href="{{ route('suppliers.index') }}" class="btn btn-primary">Kembali</a>
+        <a href="{{ route('suppliers.index') }}" class="btn btn-secondary">Kembali</a>
     </div>
 </div>
 @endsection
