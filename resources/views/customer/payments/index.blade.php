@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Pembayaran Saya — OutfitKu')
+
 @section('content')
 <div class="page-header">
     <h1>Pembayaran Saya</h1>

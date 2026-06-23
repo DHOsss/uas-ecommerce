@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Manajemen Pembayaran — OutfitKu')
+
 @section('content')
 
 @php
