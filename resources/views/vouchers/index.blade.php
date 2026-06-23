@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Voucher — OutfitKu')
+
 @section('content')
 <div class="page-header">
     <h1>Daftar Voucher</h1>
