@@ -20,7 +20,11 @@ class OrderController extends Controller
             $query->where('customer_email', auth()->user()->email);
         }
 
-        $orders = $query->paginate(10);
+        if (request('status')) {
+            $query->where('status', request('status'));
+        }
+
+        $orders = $query->paginate(10)->appends(request()->only('status'));
         return view('orders.index', compact('orders'));
     }
 
