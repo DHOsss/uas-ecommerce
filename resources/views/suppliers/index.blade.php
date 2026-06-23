@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Supplier — OutfitKu')
+
 @section('content')
 <div class="page-header">
     <h1>Daftar Supplier</h1>

@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
+@section('title', 'Ulasan Produk — OutfitKu')
+
 @section('content')
 <div class="page-header">
     <h1>Ulasan Produk</h1>
-    <a href="{{ route('reviews.create') }}" class="btn btn-primary">+ Tambah Ulasan</a>
 </div>
 
 @php
