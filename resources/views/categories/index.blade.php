@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Kategori — OutfitKu')
+
 @section('content')
 <div class="page-header">
     <h1>Daftar Kategori</h1>

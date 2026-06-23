@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Produk — OutfitKu')
+
 @section('content')
 
 @if(auth()->user()->isAdmin())
