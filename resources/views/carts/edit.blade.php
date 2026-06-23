@@ -2,7 +2,7 @@
 
 @section('content')
 <h1>Edit Keranjang</h1>
-<div class="card" style="max-width:500px">
+<div class="card card-narrow">
     <form action="{{ route('carts.update', $cart->id) }}" method="POST">
         @csrf @method('PUT')
         <div class="form-group">
@@ -28,10 +28,12 @@
         <div class="form-group">
             <label>Jumlah</label>
             <input type="number" name="quantity" value="{{ old('quantity', $cart->quantity) }}" min="1">
-            @error('quantity') <div class="error">{{ $message }}</div> @enderror
+            @error('quantity') <span class="error">{{ $message }}</span> @enderror
         </div>
-        <button type="submit" class="btn btn-success">Perbarui</button>
-        <a href="{{ route('carts.index') }}" class="btn btn-primary">Batal</a>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-success">Perbarui</button>
+            <a href="{{ route('carts.index') }}" class="btn btn-secondary">Batal</a>
+        </div>
     </form>
 </div>
 @endsection
